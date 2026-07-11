@@ -5,7 +5,7 @@ This is a (somewhat basic) bioinformatics/protein analysis toolkit. I am current
 **CITATION**
 If using in a paper, please cite as follows:
 
-Dack, J. (2026). proteinprimarytoolkit (Version 1.0.0) [Computer Software]. https://github.com/JoeDack/proteinprimarytoolki
+Dack, J. (2026). proteinprimarytoolkit (Version 1.0.0) [Computer Software]. https://github.com/JoeDack/proteinprimarytoolkit
 
 **MODULES:**
 amino_acids
