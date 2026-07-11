@@ -34,3 +34,6 @@ Custom exceptions and API utils - might move custom exceptions to its own module
 CHANGELOG
 v1.0.0 - Initial release
 Yay, it's the first version :P
+
+v1.0.1 - Bugfix
+Fixed bug in pairwise_sequence_alignment() where an unintended negative index may occur
