@@ -1,6 +1,9 @@
 [project]
 name = "proteins_package"
 version = "1.0.0"
+dependencies = [
+  "requests"
+]
 authors = [
   { name="Joseph Dack", email="cmt563@york.ac.uk" },
 ]
