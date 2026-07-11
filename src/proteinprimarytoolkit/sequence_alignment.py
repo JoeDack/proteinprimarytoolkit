@@ -38,6 +38,7 @@ def pairwise_sequence_alignment(sequence1: str,
 
             diagonal_score = top_left + (match_score if c1 == c2 else mismatch_score)
             grid[i][j] = max(diagonal_score, top + indel_score, left + indel_score)
+        
     
     aligned1 = []
     aligned2 = []
@@ -78,6 +79,11 @@ def pairwise_sequence_alignment(sequence1: str,
             j -= 1
 
             continue
+
+        if i < 0:
+          i += 1
+        if j < 0:
+          j += 1
     
     aligned1.reverse()
     aligned2.reverse()
