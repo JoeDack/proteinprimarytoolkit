@@ -1,5 +1,5 @@
 [project]
-name = "proteins_package"
+name = "proteinprimarytoolkit"
 version = "1.0.0"
 dependencies = [
   "requests"
