@@ -1,5 +1,7 @@
 **README**
-This is a (somewhat basic) bioinformatics/protein analysis toolkit. I am currently a biology student at the University of York and doing this for fun - it's not meant to be a serious project. However, it's now getting large enough I think it's worth uploading to GitHub and PyPI, even if it's not useful enough to get used in actual research.
+This is a (somewhat basic) bioinformatics/protein analysis toolkit. 
+I am currently a biology student at the University of York and doing this for fun - it's not meant to be a serious project. 
+However, it's now getting large enough I think it's worth uploading to GitHub and PyPI, even if it's not useful enough to get used in actual research.
 
 **CITATION**
 If using in a paper , please cite as follows:
