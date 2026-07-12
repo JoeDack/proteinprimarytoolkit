@@ -5,7 +5,7 @@ However, it's now getting large enough I think it's worth uploading to GitHub an
 
 **CITATION**
 If using in a paper , please cite as follows:
-Dack, J. (2026). proteinprimarytoolkit (Version 1.0.2) [Computer Software]. https://github.com/JoeDack/proteinprimarytoolkit
+Dack, J. (2026). proteinprimarytoolkit (Version 1.0.3) [Computer Software]. https://github.com/JoeDack/proteinprimarytoolkit
 
 **MODULES:**
 amino_acids
@@ -38,5 +38,8 @@ Yay, it's the first version :P
 v1.0.1 - Bugfix
 Fixed bug in pairwise_sequence_alignment() where an unintended negative index may occur
 
-v1.0.2 - Bugfix
+v1.0.2 - Bugfix 2, electric boogaloo
 Imported annotations from __futures__ in structures.py to avoid errors with type annotations within Polypeptide in older Python versions
+
+v1.0.3 - Yet again, thine bugs hath been fixed
+Fixed logic bug in needleman_wunsch
