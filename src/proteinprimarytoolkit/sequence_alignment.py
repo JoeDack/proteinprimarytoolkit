@@ -49,7 +49,7 @@ def pairwise_sequence_alignment(sequence1: str,
     # Tracing back to the top left
     while i > 0 or j > 0:
         # Prefer diagonal when possible
-        if i > 0 or j > 0:
+        if i > 0 and j > 0:
             if sequence1[j-1] == sequence2[i-1]:
                 score = match_score
             else:
