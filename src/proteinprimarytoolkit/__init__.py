@@ -1,4 +1,4 @@
-__version__ = "1.0.0"
+__version__ = "1.0.3"
 __all__ = ["amino_acids.py", "fasta.py", "pdb.py", "sequence_alignment.py", "structures.py"]
 
 # utils.py not included in __all__
