@@ -37,3 +37,6 @@ Yay, it's the first version :P
 
 v1.0.1 - Bugfix
 Fixed bug in pairwise_sequence_alignment() where an unintended negative index may occur
+
+v1.0.2 - Bugfix
+Imported annotations from __futures__ in structures.py to avoid errors with type annotations within Polypeptide in older Python versions
