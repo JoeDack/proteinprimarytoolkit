@@ -5,7 +5,7 @@ However, it's now getting large enough I think it's worth uploading to GitHub an
 
 **CITATION**
 If using in a paper , please cite as follows:
-Dack, J. (2026). proteinprimarytoolkit (Version 1.0.3) [Computer Software]. https://github.com/JoeDack/proteinprimarytoolkit
+Dack, J. (2026). proteinprimarytoolkit (Version 1.0.4) [Computer Software]. https://github.com/JoeDack/proteinprimarytoolkit
 
 **MODULES:**
 amino_acids
@@ -43,3 +43,6 @@ Imported annotations from __futures__ in structures.py to avoid errors with type
 
 v1.0.3 - Yet again, thine bugs hath been fixed
 Fixed logic bug in needleman_wunsch
+
+v1.0.4 - Error handling
+Better (mostly API-related) error handling
