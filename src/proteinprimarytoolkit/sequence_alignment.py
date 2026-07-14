@@ -79,11 +79,6 @@ def pairwise_sequence_alignment(sequence1: str,
             j -= 1
 
             continue
-
-        if i < 0:
-          i += 1
-        if j < 0:
-          j += 1
     
     aligned1.reverse()
     aligned2.reverse()

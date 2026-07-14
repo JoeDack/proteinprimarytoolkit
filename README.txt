@@ -5,7 +5,7 @@ However, it's now getting large enough I think it's worth uploading to GitHub an
 
 **CITATION**
 If using in a paper , please cite as follows:
-Dack, J. (2026). proteinprimarytoolkit (Version 1.0.4) [Computer Software]. https://github.com/JoeDack/proteinprimarytoolkit
+Dack, J. (2026). proteinprimarytoolkit (Version 1.0.5) [Computer Software]. https://github.com/JoeDack/proteinprimarytoolkit
 
 **MODULES:**
 amino_acids
@@ -23,7 +23,7 @@ Pairwise and multi-sequence alignment. Pairwise alignment currently uses the Nee
 structures
 Classes representing ligands, polypeptides, proteins. Polypeptide is functionally a wrapper around a string, Protein is functionally a wrapper around a list of Polypeptide objects.
 
-OTHER FILES
+**OTHER FILES**
 __init__
 'tis the init file.
 
@@ -31,7 +31,7 @@ utils
 Custom exceptions and API utils - might move custom exceptions to its own module later.
 
 
-CHANGELOG
+**CHANGELOG**
 v1.0.0 - Initial release
 Yay, it's the first version :P
 
@@ -42,7 +42,10 @@ v1.0.2 - Bugfix 2, electric boogaloo
 Imported annotations from __futures__ in structures.py to avoid errors with type annotations within Polypeptide in older Python versions
 
 v1.0.3 - Yet again, thine bugs hath been fixed
-Fixed logic bug in needleman_wunsch
+Fixed logic bug in pairwise_sequence_alignment()
 
 v1.0.4 - Error handling
 Better (mostly API-related) error handling
+
+v1.0.5 - Unreachable Code
+Removed a bit of unreacheable code in pairwise_sequence_alignment(). The code would run if 2 variables were both less than 0, which was impossible.
