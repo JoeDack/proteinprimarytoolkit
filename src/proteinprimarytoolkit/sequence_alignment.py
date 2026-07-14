@@ -1,4 +1,6 @@
+import requests
 from time import sleep
+
 
 from utils import *
 
@@ -98,16 +100,28 @@ def multi_sequence_alignment(sequences: str, sequence_type: str, email: str, tim
             }
 
     response = session.post(f"{BASE_CLUSTAL_API_URL}/run", data=data, timeout=timeout)
+    response.raise_for_status()
     # API returns only job ID
     job_id = response.text.strip()
 
     status_url = fr"{BASE_CLUSTAL_API_URL}/status/{job_id}"
     status = ""
     # Job takes time - wait until finished
-    while status != "FINISHED":
+    while True:
         status = session.get(status_url, timeout=timeout).text.strip()
-        # Wait a bit to avoid bombarding the server with requests
-        sleep(wait_length)
+
+        if status == "FINISHED":
+            break
+        elif status in {"QUEUED", "RUNNING"}:
+            # Wait a bit to avoid bombarding the server with requests
+            sleep(wait_length)
+        elif status in {"ERROR", "FAILURE"}:
+            raise RuntimeError(f"Clustal Omega job failed with status: {status}")
+        elif status == "NOT_FOUND":
+            raise RuntimeError(f"Clustal Omega job not found or expired")
+        else:
+            raise RuntimeError(f"Unexpected status code: {status}")
+
     
     result_url = fr"{BASE_CLUSTAL_API_URL}/result/{job_id}/aln-clustal"
     return session.get(result_url, timeout=timeout).text

@@ -5,7 +5,7 @@ However, it's now getting large enough I think it's worth uploading to GitHub an
 
 **CITATION**
 If using in a paper , please cite as follows:
-Dack, J. (2026). proteinprimarytoolkit (Version 1.0.5) [Computer Software]. https://github.com/JoeDack/proteinprimarytoolkit
+Dack, J. (2026). proteinprimarytoolkit (Version 1.0.6) [Computer Software]. https://github.com/JoeDack/proteinprimarytoolkit
 
 **MODULES:**
 amino_acids
@@ -49,3 +49,6 @@ Better (mostly API-related) error handling
 
 v1.0.5 - Unreachable Code
 Removed a bit of unreacheable code in pairwise_sequence_alignment(). The code would run if 2 variables were both less than 0, which was impossible.
+
+v1.0.4 - A bugfix, a bugfix, my kingdom for a bugfix
+Fixed bug in multi_sequence_alignment() where code would loop forever if a status code other than "FINISHED" was returned by the Clustal Omega API
