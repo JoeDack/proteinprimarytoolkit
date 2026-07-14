@@ -5,6 +5,12 @@ from typing import Any
 class InvalidSequenceError(ValueError):
     pass
 
+class APIError(RuntimeError):
+    pass
+
+class InvalidPDBIDError(ValueError):
+    pass
+
 thread_local = local()
 
 # Called within functions that make API requests
@@ -37,4 +43,4 @@ def get_json_from_api(session: requests.Session, url: str, timeout: int | float)
 
     # Raise more readable error than response.raise_for_status()
     except requests.RequestException as e:
-        raise ValueError(f"Failed to retrieve data from {url}") from e
+        raise APIError(f"Failed to retrieve data from {url}") from e

@@ -116,11 +116,11 @@ def multi_sequence_alignment(sequences: str, sequence_type: str, email: str, tim
             # Wait a bit to avoid bombarding the server with requests
             sleep(wait_length)
         elif status in {"ERROR", "FAILURE"}:
-            raise RuntimeError(f"Clustal Omega job failed with status: {status}")
+            raise APIError(f"Clustal Omega job failed with status: {status}")
         elif status == "NOT_FOUND":
-            raise RuntimeError(f"Clustal Omega job not found or expired")
+            raise APIError(f"Clustal Omega job not found or expired")
         else:
-            raise RuntimeError(f"Unexpected status code: {status}")
+            raise APIError(f"Unexpected status code: {status}")
 
     
     result_url = fr"{BASE_CLUSTAL_API_URL}/result/{job_id}/aln-clustal"

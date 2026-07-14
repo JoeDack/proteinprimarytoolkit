@@ -229,6 +229,7 @@ PHENYLALANINE = AminoAcid(code="F",
                           turn_propensity=60,
                           category=AminoAcidCategory.AROMATIC)
 
+# this one is a secondary amine (weird fuckass amino acid)
 PROLINE = AminoAcid(code="P",
                     weight=97.05,
                     carboxyl_pka=1.99,

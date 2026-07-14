@@ -54,7 +54,7 @@ def get_polypeptides_from_pdb(pdb_id: str, timeout: int = 10) -> list[Polypeptid
     Retrieve sequences from RCSB PDB, returns list of Polypeptide instances
     """
     if not (len(pdb_id) == 4 and pdb_id.isalnum()):
-        raise ValueError("PDB ID must be alphanumeric and 4 characters long")
+        raise InvalidPDBIDError("PDB ID must be alphanumeric and 4 characters long")
 
     pdb_id = pdb_id.upper()
 
@@ -77,7 +77,7 @@ def get_protein_from_pdb(pdb_id: str, timeout: int = 10) -> Protein:
     Retrieve sequence and ligand information using the RCSB PDB Data API.
     """
     if not (len(pdb_id) == 4 and pdb_id.isalnum()):
-        raise ValueError("PDB ID must be alphanumeric and 4 characters long")
+        raise InvalidPDBIDError("PDB ID must be alphanumeric and 4 characters long")
 
     pdb_id = pdb_id.upper()
 
