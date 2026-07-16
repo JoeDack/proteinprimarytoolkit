@@ -7,7 +7,7 @@ from utils import *
 BASE_PDB_API_URL = r"https://data.rcsb.org/rest/v1/core"
 
 
-def get_polymer_sequence(pdb_id: str, polymer_id: str, timeout: int | float) -> str | None:
+def get_polymer_sequence(pdb_id: str, polymer_id: str, timeout: int | float = DEFAULT_TIMEOUT) -> str | None:
     """
     Retrieve a sequence for a polymer entity.
     Returns None if the entity is not a polypeptide.
@@ -23,7 +23,7 @@ def get_polymer_sequence(pdb_id: str, polymer_id: str, timeout: int | float) -> 
     return None
 
 
-def get_ligand(pdb_id: str, ligand_id: str, timeout: int | float) -> Ligand:
+def get_ligand(pdb_id: str, ligand_id: str, timeout: int | float = DEFAULT_TIMEOUT) -> Ligand:
     """
     Retrieve component ID, name and SMILES for a non-polymer entry. Returns Ligand object
     """
@@ -44,12 +44,12 @@ def get_ligand(pdb_id: str, ligand_id: str, timeout: int | float) -> Ligand:
     return Ligand(component_id, name, smiles)
 
 
-def get_entry(pdb_id: str, timeout: int) -> dict[str, Any]:
+def get_entry(pdb_id: str, timeout: int | float = DEFAULT_TIMEOUT) -> dict[str, Any]:
     session = get_session()
     entry_url = f"{BASE_PDB_API_URL}/entry/{pdb_id}"
     return get_json_from_api(session, entry_url, timeout)
 
-def get_polypeptides_from_pdb(pdb_id: str, timeout: int = 10) -> list[Polypeptide]:
+def get_polypeptides_from_pdb(pdb_id: str, timeout: int | float = DEFAULT_TIMEOUT) -> list[Polypeptide]:
     """
     Retrieve sequences from RCSB PDB, returns list of Polypeptide instances
     """
@@ -72,7 +72,7 @@ def get_polypeptides_from_pdb(pdb_id: str, timeout: int = 10) -> list[Polypeptid
     polypeptides = [Polypeptide(s) for s in sequences]
     return polypeptides
 
-def get_protein_from_pdb(pdb_id: str, timeout: int = 10) -> Protein:
+def get_protein_from_pdb(pdb_id: str, timeout: int | float = DEFAULT_TIMEOUT) -> Protein:
     """
     Retrieve sequence and ligand information using the RCSB PDB Data API.
     """

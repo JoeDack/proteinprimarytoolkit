@@ -1,6 +1,4 @@
-import requests
 from time import sleep
-
 
 from utils import *
 
@@ -88,7 +86,7 @@ def pairwise_sequence_alignment(sequence1: str,
     return "".join(aligned1), "".join(aligned2)
 
 
-def multi_sequence_alignment(sequences: str, sequence_type: str, email: str, timeout: int | float, wait_length: int | float = 0.1) -> dict:
+def multi_sequence_alignment(sequences: str, sequence_type: str, email: str, timeout: int | float = DEFAULT_TIMEOUT, wait_length: int | float = 0.1) -> str:
     """
     Multi-sequence alignment using the Clustal Omega API. Sequences should be in FASTA format.
     """
@@ -100,15 +98,17 @@ def multi_sequence_alignment(sequences: str, sequence_type: str, email: str, tim
             }
 
     response = session.post(f"{BASE_CLUSTAL_API_URL}/run", data=data, timeout=timeout)
-    response.raise_for_status()
+    raise_for_api_status(response)
     # API returns only job ID
     job_id = response.text.strip()
 
+
     status_url = fr"{BASE_CLUSTAL_API_URL}/status/{job_id}"
     status = ""
-    # Job takes time - wait until finished
+
+    # Job takes time - wait until job finishes before requesting result
     while True:
-        status = session.get(status_url, timeout=timeout).text.strip()
+        status = get_text_from_api(session, status_url, timeout).strip()
 
         if status == "FINISHED":
             break
@@ -124,4 +124,6 @@ def multi_sequence_alignment(sequences: str, sequence_type: str, email: str, tim
 
     
     result_url = fr"{BASE_CLUSTAL_API_URL}/result/{job_id}/aln-clustal"
-    return session.get(result_url, timeout=timeout).text
+    result = get_text_from_api(session, result_url, timeout)
+
+    return result

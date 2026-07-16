@@ -5,7 +5,7 @@ However, it's now getting large enough I think it's worth uploading to GitHub an
 
 **CITATION**
 If using in a paper , please cite as follows:
-Dack, J. (2026). proteinprimarytoolkit (Version 1.0.7) [Computer Software]. https://github.com/JoeDack/proteinprimarytoolkit
+Dack, J. (2026). proteinprimarytoolkit (Version 1.0.8) [Computer Software]. https://github.com/JoeDack/proteinprimarytoolkit
 
 **MODULES:**
 amino_acids
@@ -56,3 +56,8 @@ Fixed bug in multi_sequence_alignment() where code would loop forever if a statu
 v1.0.7 - Custom errors
 Added a couple new custom errors - APIError and InvalidPDBIDError.
 Also fixed the changelog - the previous update was listed as v1.0.4 instead of v1.0.6
+
+v1.0.8 - API changes
+More robust API helpers and better API error handling
+Added default timeout for all functions which use APIs (currently 30s)
+Removed explicit session type checks from API helpers
